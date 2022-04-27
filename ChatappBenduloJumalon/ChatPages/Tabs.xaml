@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ChatappBenduloJumalon.Tabs"
+            xmlns:local="clr-namespace:ChatappBenduloJumalon"
+            xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core"
+            android:TabbedPage.ToolbarPlacement="Bottom"
+            android:TabbedPage.BarItemColor="Gray"
+            SelectedTabColor="FloralWhite"
+            UnselectedTabColor="DarkGray"
+            BackgroundColor="LightGray"
+            MinimumHeightRequest="200"
+            HeightRequest="{Binding Converter={StaticResource scale}, ConverterParameter='height=100'}"
+            
+            >
+
+    
+    
+  <!--Pages can be added as references or inline-->
+
+   
+    <local:FriendsPage  Title="Chat" IconImageSource="chat2.png"/>
+    <local:ProfilePage  Title="Profile" IconImageSource="profileicon.png"/>
+</TabbedPage>

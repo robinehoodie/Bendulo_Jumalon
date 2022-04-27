@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ChatappBenduloJumalon.ProfilePage"
+             xmlns:local="clr-namespace:ChatappBenduloJumalon"
+             BackgroundColor="White">
+    <ContentPage.Content>
+        <StackLayout Margin="0,30,0,0">
+            
+            <Frame x:Name="outerFrame" HasShadow="False" WidthRequest="200" Padding="10" Margin="0" VerticalOptions="Center" HorizontalOptions="Center" BackgroundColor="#545454">
+                <Frame.CornerRadius>
+                    <OnPlatform x:TypeArguments="x:Single">
+                        <On Platform="iOS" Value="10"/>
+                        <On Platform="Android" Value="500"/>
+                    </OnPlatform>
+                </Frame.CornerRadius>
+                <Frame x:Name="innerFrame" HasShadow="False" WidthRequest="200" Padding="5" Margin="0" VerticalOptions="Center" HorizontalOptions="Center" BackgroundColor="white">
+                    <Frame.CornerRadius>
+                    <OnPlatform x:TypeArguments="x:Single">
+                        <On Platform="iOS" Value="10"/>
+                        <On Platform="Android" Value="500"/>
+                    </OnPlatform>
+                </Frame.CornerRadius>
+                    <Frame x:Name="pictureFrame" HasShadow="False" HeightRequest="190" WidthRequest="200" Padding="0" Margin="0" VerticalOptions="Center" HorizontalOptions="Center" BackgroundColor="blue">
+                        <Frame.CornerRadius>
+                            <OnPlatform x:TypeArguments="x:Single">
+                                <On Platform="iOS" Value="10"/>
+                                <On Platform="Android" Value="500"/>
+                            </OnPlatform>
+                        </Frame.CornerRadius>
+                        <Frame.Content>
+                            <Image x:Name="circleImg" Source="prof.jpg" Aspect="Fill"></Image>
+                        </Frame.Content>
+                    </Frame>
+                </Frame>
+            </Frame>
+            <Label x:Name="ProfName" TextColor="DarkGray" Text="Name" HorizontalOptions="CenterAndExpand" Margin="10" FontSize="Large"/>
+            <Label x:Name="ProfEmail" TextColor="DarkGray" Text="Email" HorizontalOptions="CenterAndExpand"  FontSize="Large"/>
+            <local:CustomButton  Text="Signout" Clicked="SignOut_Clicked"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
+    
+    
