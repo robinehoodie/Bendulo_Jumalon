@@ -1,0 +1,101 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:ChatappBenduloJumalon"
+              
+             x:Class="ChatappBenduloJumalon.ConversationPage"
+             BackgroundColor="White">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <DataTemplate x:Key="FromTemplate" >
+                <ViewCell>
+                    <ViewCell.View>
+                        <Frame BorderColor="White" BackgroundColor="AliceBlue" CornerRadius="2"  Padding="10" Margin="{Binding Converter={StaticResource scale}, ConverterParameter='thickness=100,10,10,10'}"  HorizontalOptions="End">
+
+                            <Label TextColor="DarkGray" Text="{Binding body}"/>
+
+
+
+                        </Frame>
+                    </ViewCell.View>
+                </ViewCell>
+            </DataTemplate>
+
+            <DataTemplate x:Key="ToTemplate">
+            <ViewCell>
+                <ViewCell.View>
+                        <Frame  BackgroundColor="LightGray" CornerRadius="2" Padding="10" Margin="{Binding Converter={StaticResource scale}, ConverterParameter='thickness=10,10,100,10'}" HorizontalOptions="Start">
+                            <Label TextColor="DarkGray" Text="{Binding body}"  />
+
+
+
+                        </Frame>
+                    </ViewCell.View>
+            </ViewCell>
+            </DataTemplate>
+            <local:ChatData x:Key="chatData" FromTemplate="{StaticResource FromTemplate}" ToTemplate="{StaticResource ToTemplate}"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <StackLayout>
+
+
+        <Frame  BorderColor="FloralWhite">
+            <Grid>
+                <Label FontSize="Large" TextColor="DarkGray" Text="{Binding name}"/>
+                <ImageButton BorderColor="White" BackgroundColor="White" Clicked="Back_Clicked" Source="backbutton.png" HorizontalOptions="End" HeightRequest="{Binding Converter={StaticResource scale}, ConverterParameter='height=40'}" />
+            </Grid>
+        </Frame>
+        
+
+        <Label  HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" x:Name="Blankmsg" IsVisible="true"  TextColor="DarkGray" FontSize="Large" Text="Start a Conversation"></Label>
+        
+            <ListView SelectionMode="None" x:Name="MyListView" HasUnevenRows="true" SeparatorVisibility="None" ItemTemplate="{StaticResource chatData}">
+                
+                
+                
+            </ListView>
+
+
+
+        <Frame x:Name="editorframe" Padding="10,10,0,0" HeightRequest="100"   BackgroundColor="LightGray">
+            <Grid>
+                
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="8*"/>
+                    <ColumnDefinition Width="2*"></ColumnDefinition>
+
+
+                </Grid.ColumnDefinitions>
+                
+                <Editor Focused="editorbox_Focused" Unfocused="editorbox_Unfocused" HeightRequest="70" Placeholder="Write A Message" TextColor="Black" x:Name="editorbox" Text="{Binding editor}"  MaxLength="240" />
+                
+                <Button x:Name="abutton" TextColor="White" HorizontalOptions="Center" VerticalOptions="Start" Text="send" Grid.Column="1"  HeightRequest="60" Clicked="Button_Clicked">
+                    
+                </Button>
+            </Grid>
+            
+
+        </Frame>
+
+
+    </StackLayout>
+   
+
+    <!--Custom View Cells-->
+    <!--
+    <ListView.ItemTemplate>
+      <DataTemplate>
+        <ViewCell>
+          <StackLayout>
+            <Label Text="{Binding Text}" 
+                   Style="{DynamicResource ListItemTextStyle}" />
+            <Label Text="{Binding Detail}" 
+                   Style="{DynamicResource ListItemDetailTextStyle}"/>
+          </StackLayout>
+        </ViewCell>
+      </DataTemplate>
+    </ListView.ItemTemplate>
+    -->
+
+</ContentPage>
